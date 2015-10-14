@@ -2,7 +2,7 @@
 Fuzzer for wordpress, cold fusion, drupal, joomla, and phpnuke.
 This project uses [secLists] (https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web_Content/CMS)
 
-
+``````
 ##Example output
 Please enter target URL (example: hackme.org)
 blog.example.com
@@ -45,3 +45,4 @@ FORBIDDEN AT: blog.example.com/wp-admin/css/
 200 FOUND AT: blog.example.com/wp-admin/css/login.css
 200 FOUND AT: blog.example.com/wp-admin/css/login-rtl.css
 200 FOUND AT: blog.example.com/wp-admin/css/media.css
+``````
