@@ -26,9 +26,19 @@ def sor_res_code(res, targetURI)
 end
 
 def get_response_code(targetURI)
-  res = Net::HTTP.get_response(URI(targetURI))
-  sor_res_code res, targetURI
+  begin
+    if targetURI.include?("http://")
+      res = Net::HTTP.get_response(URI.parse(targetURI))
+      sor_res_code res, targetURI
+    else
+      res = Net::HTTP.get_response(URI.parse("http://"+targetURI))
+      sor_res_code res, targetURI
+    end
+  rescue URI::InvalidURIError
+    puts "InvalidURIError"
+  end
 end
+
 
 
 def openFile(file_name, getURI)
@@ -42,7 +52,7 @@ File.open(file_name, "r") do |f|
 end
 
 
-puts "Please enter target URL starting with \"http(s)://\" (example: https://hackme.org)"
+puts "Please enter target URL (example: hackme.org)"
 
 userURI = gets.chomp
 getURI = userURI.gsub(/\/$/, '')
@@ -53,11 +63,14 @@ puts "What are we fuzzing?
           3:   Drupal
           4:   Joomla
           5:   PHP-Nuke
-          6:   Common PHP Files
-          7:   Look for backup files
-          8:   Apache Default Files
-          9:   IIS Default Files
-          10:  Other\n\n"
+          6:   Magento
+          7:   Sharepoint
+          8:   Common PHP Files
+          9:   Look for backup files
+          10:  Apache Default Files
+          11:  IIS Default Files
+          12:  Miscellaneous Files (SVN, robots, etc).
+          0:  Other\n\n"
 puts "Please enter an option:"
 choice = gets.chomp
 
@@ -65,7 +78,7 @@ if choice == "1"
   file_name = "CMS/wordpress.txt"
   fuzz_name = "Wordpress"
 elsif choice == "2"
-    file_name =  "CMS/coldFusion.txt", getURI
+    file_name =  "CMS/coldFusion.txt"
     fuzz_name = "Cold Fusion"
 elsif choice ==  "3"
     file_name = "CMS/drupal.txt"
@@ -77,18 +90,27 @@ elsif choice ==  "5"
     file_name = "CMS/phpnuke.txt"
     fuzz_name = "PHP-Nuke"
 elsif choice ==  "6"
+    file_name = "CMS/magento.txt"
+    fuzz_name = "Magento"
+elsif choice ==  "6"
+    file_name = "CMS/sharepoint.txt"
+    fuzz_name = "Sharepoint"
+elsif choice ==  "8"
     file_name = "common/php.txt"
     fuzz_name = "Common PHP"
-elsif choice ==  "7"
+elsif choice ==  "9"
     file_name = "common/backupFiles.txt"
     fuzz_name = "Backup"
-elsif choice ==  "8"
+elsif choice ==  "10"
     file_name = "webserver/apache.txt"
     fuzz_name = "Apache"
-elsif choice ==  "9"
+elsif choice ==  "11"
     file_name = "webserver/iis.txt"
     fuzz_name = "IIS"
-elsif choice ==  "10"
+elsif choice ==  "12"
+    file_name = "others/misc.txt"
+    fuzz_name = "Miscellaneous, config"
+elsif choice ==  "0"
     puts "Please enter path to file: "
     file_name = gets.chomp
     fuzz_name = "random user"
@@ -104,6 +126,4 @@ if File.file?(file_name)
   puts "-----------------------------------------------------------------\n"
 else
   puts "File Does Not Exist"
-  puts "Enter dictionary filename:"
-  file_name = gets.chomp
 end
