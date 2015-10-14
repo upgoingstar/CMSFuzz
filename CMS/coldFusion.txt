@@ -17,8 +17,7 @@
 /cfdocs/exampleapp/docs/sourcewindow.cfm?
 /cfdocs/exampleapp/email/application.cfm
 /cfdocs/exampleapp/email/getfile.cfm?
-/cfdocs/exampleapp/email/getfile.cfm?filename=c:\\boot.ini
-/cfdocs/exampleapp/email/getfile.cfm?filename=c:\boot.ini
+/cfdocs/exampleapp/email/getfile.cfm
 /cfdocs/exampleapp/publish/admin/addcontent.cfm
 /cfdocs/exampleapp/publish/admin/application.cfm
 /cfdocs/exampleapps/sorry.htm
@@ -287,7 +286,7 @@
 /cfdocs/cfmlsyntaxcheck.cfm
 /cfdocs/exampleapp/docs/sourcewindow.cfm
 /cfdocs/exampleapp/email/application.cfm
-/cfdocs/exampleapp/email/getfile.cfm?filename=c:\boot.ini
+/cfdocs/exampleapp/email/getfile.cfm
 /cfdocs/exampleapp/publish/admin/addcontent.cfm
 /cfdocs/exampleapp/publish/admin/application.cfm
 /cfdocs/examples/cvbeans/beaninfo.cfm
