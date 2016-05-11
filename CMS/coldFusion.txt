@@ -1,4 +1,4 @@
-/%00.cfm
+base/%00.cfm
 /%2500.cfm
 /404_106321.cfm
 /_mmServerScripts/MMHTTPDB.php
@@ -210,7 +210,7 @@
 /CFIDE/Administrator/homefile.cfm
 /CFIDE/Administrator/homepage.cfm
 /CFIDE/Administrator/login.cfm
-/CFIDE/Administrator/logout.cfm
+/CFIDE/Administrator/logout.cfmbase
 /CFIDE/Administrator/navserver.cfm
 /CFIDE/Administrator/right.cfm
 /CFIDE/Administrator/tabs.cfm
@@ -230,6 +230,7 @@
 /CFIDE/adminapi/_datasource/setmsaccessregistry.cfm
 /CFIDE/adminapi/_datasource/setsldatasource.cfm
 /CFIDE/adminapi/administrator.cfc
+/CFIDE/adminapi/administrator.cfc?method=getSalt
 /CFIDE/adminapi/base.cfc
 /CFIDE/adminapi/customtags/
 /CFIDE/adminapi/customtags/l10n.cfm
