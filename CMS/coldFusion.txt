@@ -230,6 +230,7 @@
 /CFIDE/adminapi/_datasource/setmsaccessregistry.cfm
 /CFIDE/adminapi/_datasource/setsldatasource.cfm
 /CFIDE/adminapi/administrator.cfc
+/CFIDE/adminapi/administrator.cfc?method=getSalt
 /CFIDE/adminapi/base.cfc
 /CFIDE/adminapi/customtags/
 /CFIDE/adminapi/customtags/l10n.cfm
